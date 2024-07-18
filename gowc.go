@@ -98,26 +98,20 @@ func main() {
 }
 
 func countIn(input *bufio.Scanner, operation WhatToCount) int64 {
-	var split_func bufio.SplitFunc = nil
+	var splitFunc bufio.SplitFunc = nil
 
 	switch operation {
 	case Lines:
-		split_func = bufio.ScanLines
+		splitFunc = bufio.ScanLines
 	case Words:
-		split_func = bufio.ScanWords
+		splitFunc = bufio.ScanWords
 	case Chars:
-		split_func = bufio.ScanRunes
+		splitFunc = bufio.ScanRunes
 	case Bytes:
-		split_func = bufio.ScanBytes
+		splitFunc = bufio.ScanBytes
 	}
 
-	count := countBaseFunc(input, split_func)
-
-	return count
-}
-
-func countBaseFunc(input *bufio.Scanner, split_func bufio.SplitFunc) int64 {
-	input.Split(split_func)
+	input.Split(splitFunc)
 
 	var count int64 = 0
 	for input.Scan() {
