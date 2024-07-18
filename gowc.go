@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	parser := argparse.NewParser("wcgo", "Count stuff in a given file")
+	parser := argparse.NewParser("wcgo", "Count line, words, bytes and characters in the given input")
 
 	countBytes := parser.Flag("c", "bytes", &argparse.Options{Default: false, Help: "Prints the number of bytes in the file"})
 	countLines := parser.Flag("l", "lines", &argparse.Options{Default: false, Help: "Prints the number of lines in the file"})
